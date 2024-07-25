@@ -1,0 +1,41 @@
+<!-- users.component.html -->
+<div *ngIf="successMessage" class="success-message">
+    <img src="../assets/tick.png" alt="">
+    <p>Success!</p>
+    <span>{{ successMessage }}</span>
+    <button>continue</button>
+</div> 
+
+<div class="table-container">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>PhoneNumber</th>
+                <th>Role</th>
+                <th>Approve</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of selectedusers">
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.lastName }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.phoneNumber }}</td>
+                <td>{{ user.role }}</td>
+                <td>
+                    <input 
+                        type="checkbox" 
+                        class="custom-checkbox" 
+                        [id]="'checkbox' + user.id" 
+                        (change)="approveUser(user, $event)"
+                        [checked]="user.role === 'organizer'"
+                        [class.checked]="user.role === 'organizer'">
+                    <label [for]="'checkbox' + user.id"></label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

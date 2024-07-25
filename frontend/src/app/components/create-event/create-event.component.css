@@ -1,0 +1,114 @@
+/* create-event.component.css */
+.form-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px ; /* Reduced padding */
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 8px; /* Reduced margin */
+  }
+  
+  .form-group {
+    margin-bottom: 10px; /* Reduced margin */
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 3px; /* Reduced margin */
+    color: #333;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 5px; /* Reduced padding */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+  }
+  
+  .form-group .error-message {
+    color: #e74c3c;
+    margin-top: 3px; /* Reduced margin */
+  }
+  
+  .buttonbtn {
+    text-align: center;
+  }
+  
+  .btn1 {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn1:hover {
+    background-color: #45a049;
+  }
+  
+  .btn1:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+/* ***************success message***************** */
+.success-message {
+    position: fixed;
+    z-index: 999;
+    margin-left: 20rem;
+    width: 20rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    margin-top: -2rem;
+}
+.success-message > img{
+    width: 20px;
+    height: 20px;
+    border: dotted 2px #87cc6d;
+    padding: 5px;
+    border-radius: 50%;
+}
+.success-message > p{
+    color: #87cc6d;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.success-message > span{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.success-message > button{
+    margin-bottom: -2rem;
+    width: 6rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: large;
+    border: none;
+    background-color: #87cc6d;
+}

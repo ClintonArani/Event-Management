@@ -1,0 +1,60 @@
+POST http://localhost:5400/events/new-event
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkNWM4NDhkLWM5Y2EtNDRhYi1hNGM4LTU5Nzg0NzBlYWNiOSIsImZpcnN0TmFtZSI6IkJpbGwiLCJsYXN0TmFtZSI6IkNsaW50b24iLCJwaG9uZU51bWJlciI6IjA3OTE3MzY1NzAiLCJlbWFpbCI6ImNsaW50b25hcmFuaUBnbWFpbC5jb20iLCJwcm9maWxlIjpudWxsLCJpc0NyZWF0ZWQiOnRydWUsInJvbGUiOiJvcmdhbml6ZXIiLCJpYXQiOjE3MjE3MjY2NTMsImV4cCI6MTcyMTczMzg1M30.XGwwMZN1Sfsm-EgDX5vz1aPxQp8gZtBq4_JVpZFAx1U
+
+{
+  "Image": "img1.png",
+  "EventDate": "2024-07-11",
+  "EventTime": "15:00",
+  "Location": "India",
+  "Price": "15000",
+  "Description": "Created Now again"
+}
+
+
+
+
+### Fetch All events Created
+GET http://localhost:5400/events/all-events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkNWM4NDhkLWM5Y2EtNDRhYi1hNGM4LTU5Nzg0NzBlYWNiOSIsImZpcnN0TmFtZSI6IkJpbGwiLCJsYXN0TmFtZSI6IkNsaW50b24iLCJwaG9uZU51bWJlciI6IjA3OTE3MzY1NzAiLCJlbWFpbCI6ImNsaW50b25hcmFuaUBnbWFpbC5jb20iLCJwcm9maWxlIjpudWxsLCJpc0NyZWF0ZWQiOnRydWUsInJvbGUiOiJvcmdhbml6ZXIiLCJpYXQiOjE3MjE4NTYxNjcsImV4cCI6MTcyMTg2MzM2N30.ZC7u5Oda7C00kvVI78_3_q6iJm8T6w2BudocdPYoC1I
+
+
+### Update event by ID
+PUT http://localhost:5400/events/update-event/2cbe49e4-df5f-42ac-93eb-d29a2aea9e50
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkNWM4NDhkLWM5Y2EtNDRhYi1hNGM4LTU5Nzg0NzBlYWNiOSIsImZpcnN0TmFtZSI6IkJpbGwiLCJsYXN0TmFtZSI6IkNsaW50b24iLCJwaG9uZU51bWJlciI6IjA3OTE3MzY1NzAiLCJlbWFpbCI6ImNsaW50b25hcmFuaUBnbWFpbC5jb20iLCJwcm9maWxlIjpudWxsLCJpc0NyZWF0ZWQiOnRydWUsInJvbGUiOiJvcmdhbml6ZXIiLCJpYXQiOjE3MjE3MjY2NTMsImV4cCI6MTcyMTczMzg1M30.XGwwMZN1Sfsm-EgDX5vz1aPxQp8gZtBq4_JVpZFAx1U
+
+{
+  "Image": "clinton.png",
+  "EventDate": "2024-07-11",
+  "EventTime": "15:00",
+  "Location": "India",
+  "Price": "15000",
+  "Description": "A business meeting"
+}
+
+
+
+### Delete event 
+DELETE http://localhost:5400/events/delete-event/9d4e7102-7545-4276-a8b7-52b04b26ea5a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkNWM4NDhkLWM5Y2EtNDRhYi1hNGM4LTU5Nzg0NzBlYWNiOSIsImZpcnN0TmFtZSI6IkJpbGwiLCJsYXN0TmFtZSI6IkNsaW50b24iLCJwaG9uZU51bWJlciI6IjA3OTE3MzY1NzAiLCJlbWFpbCI6ImNsaW50b25hcmFuaUBnbWFpbC5jb20iLCJwcm9maWxlIjpudWxsLCJpc0NyZWF0ZWQiOnRydWUsInJvbGUiOiJvcmdhbml6ZXIiLCJpYXQiOjE3MjE4NTYxNjcsImV4cCI6MTcyMTg2MzM2N30.ZC7u5Oda7C00kvVI78_3_q6iJm8T6w2BudocdPYoC1I
+
+
+### Get event by ID
+GET http://localhost:5400/events/one-event/c40ee3a0-3d37-4825-b32a-1da8bbac4088
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkNWM4NDhkLWM5Y2EtNDRhYi1hNGM4LTU5Nzg0NzBlYWNiOSIsImZpcnN0TmFtZSI6IkJpbGwiLCJsYXN0TmFtZSI6IkNsaW50b24iLCJwaG9uZU51bWJlciI6IjA3OTE3MzY1NzAiLCJlbWFpbCI6ImNsaW50b25hcmFuaUBnbWFpbC5jb20iLCJwcm9maWxlIjpudWxsLCJpc0NyZWF0ZWQiOnRydWUsInJvbGUiOiJvcmdhbml6ZXIiLCJpYXQiOjE3MjE3MjY2NTMsImV4cCI6MTcyMTczMzg1M30.XGwwMZN1Sfsm-EgDX5vz1aPxQp8gZtBq4_JVpZFAx1U
+
+
+### Get un Assigned event
+GET http://localhost:5400/events/unassigned-events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkNWM4NDhkLWM5Y2EtNDRhYi1hNGM4LTU5Nzg0NzBlYWNiOSIsImZpcnN0TmFtZSI6IkJpbGwiLCJsYXN0TmFtZSI6IkNsaW50b24iLCJwaG9uZU51bWJlciI6IjA3OTE3MzY1NzAiLCJlbWFpbCI6ImNsaW50b25hcmFuaUBnbWFpbC5jb20iLCJwcm9maWxlIjpudWxsLCJpc0NyZWF0ZWQiOnRydWUsInJvbGUiOiJvcmdhbml6ZXIiLCJpYXQiOjE3MjE2NzU1MTMsImV4cCI6MTcyMTY4MjcxM30.lWw2MEd7CLsL25VTgEyj3ULw5U_AR0WuFgWTFe_WpBU
+
+
+### Update asssigned event
+PUT http://localhost:5400/events/assign-event/2270f546-92f1-4f04-89f1-37f23b559d51
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjlkNWM4NDhkLWM5Y2EtNDRhYi1hNGM4LTU5Nzg0NzBlYWNiOSIsImZpcnN0TmFtZSI6IkJpbGwiLCJsYXN0TmFtZSI6IkNsaW50b24iLCJwaG9uZU51bWJlciI6IjA3OTE3MzY1NzAiLCJlbWFpbCI6ImNsaW50b25hcmFuaUBnbWFpbC5jb20iLCJwcm9maWxlIjpudWxsLCJpc0NyZWF0ZWQiOnRydWUsInJvbGUiOiJvcmdhbml6ZXIiLCJpYXQiOjE3MjE3MjY2NTMsImV4cCI6MTcyMTczMzg1M30.XGwwMZN1Sfsm-EgDX5vz1aPxQp8gZtBq4_JVpZFAx1U

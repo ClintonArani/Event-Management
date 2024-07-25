@@ -1,0 +1,446 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.home{
+    background: url("../../../../public/assets/paris\ backgound.jpg") no-repeat center center fixed;
+    background-size: calc(100% - 0px) calc(100% - 0px);
+    background-attachment: fixed;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* filter: grayscale(100%) saturate(100%); */
+    filter: hue-rotate(90deg);
+    text-shadow: 1px 1px 2px black, 5px 5px #2a1e84;
+}
+.home >h1{
+    color: #F0EAD6;
+    font-size: 80px;
+    text-transform: capitalize;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.home >h1 > span{
+    margin-left: 6rem;
+}
+.home >.explore-btn{
+    width: 12rem;
+    height: 3rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: large;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    transition: all ease-in-out 0.5s;
+    background-color: #ff0025;
+    margin-top: 4rem;
+    text-transform: uppercase;
+    padding: 10px;
+}
+.home >.explore-btn:hover{
+    background-color: olivedrab;
+    transform: translateY(-10px);
+}
+
+.events-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.events-container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.events-area {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.event {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s;
+}
+
+.event:hover {
+    transform: translateY(-10px);
+}
+
+.event-image img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.event-content h2 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #555;
+}
+
+.event-content p {
+    font-size: 1em;
+    margin: 0;
+    color: #777;
+}
+
+.event-content span {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 10px;
+}
+
+.event-content span h2 {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.event-content button {
+    padding: 10px 15px;
+    background-color: #2a1e84;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.event-content button:hover {
+    background-color: #0875ea;
+}
+
+.event-content button span {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.contact{
+    background-color: #f0f8e6;
+    padding-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+}
+.contact > h1{
+    text-transform: capitalize;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.contact > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.contact > form > div{
+    display: flex;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 2rem;
+}
+.contact > form > div >input{
+    margin-left: 10px;
+    height: 2rem;
+    width: 20rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.contact > form > div >input:focus{
+    outline: none;
+}
+.contact > form > div >textarea{
+    height: 3rem;
+    width: 20rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+.contact > form > div >textarea:focus{
+    outline: none;
+}
+label{
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+
+}
+.contact > form > input[type="submit"]{
+    width: 12rem;
+    height: 3rem;
+    border: none;
+    margin-top: 1rem;
+    background-color: #2a1e84;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+    margin-left: 6rem;
+    color: #fff;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+.contact > form > input[type="submit"]:hover{
+    background-color: #0419fb;
+}
+footer {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding: 2rem;
+    position: relative;
+    text-align: center;
+}
+
+.footer-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-logo img {
+    width: 100px;
+    height: auto;
+}
+
+.footer-info {
+    flex: 1;
+}
+
+.footer-info p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+.footer-info p:first-of-type {
+    font-weight: bold;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    display: inline-block;
+}
+
+.footer-social img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s, opacity 0.8s ease-in-out;
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+.event-details-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 900;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 10px auto;
+    border-left: 5px solid #2a1e84;
+}
+
+.event-details-heading {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.event-details-heading h3 {
+    font-size: 1.5em;
+    color: #2a1e84;
+    margin: 0;
+}
+
+.content p {
+    font-size: 1em;
+    margin: 8px 0;
+    color: #555;
+}
+
+.content p strong {
+    color: #333;
+}
+
+.booking-options {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.booking-options label {
+    font-weight: bold;
+    color: #333;
+}
+
+.booking-options select,
+.booking-options input {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.discount-info {
+    margin-top: 15px;
+}
+
+.discount-info p {
+    font-weight: bold;
+    color: #333;
+}
+
+.discount-info ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #555;
+}
+
+.discount-info ul li {
+    margin-bottom: 5px;
+}
+
+.eventbtns {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.eventbtns button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.eventbtns .book-event-btn {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.eventbtns .book-event-btn:hover {
+    background-color: #218838;
+}
+
+.eventbtns .close-btn {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.eventbtns .close-btn:hover {
+    background-color: #c82333;
+}
+
+/* ***************success message***************** */
+.success-message {
+    position: fixed;
+    z-index: 1000;
+    margin-left: 20rem;
+    width: 20rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    margin-top: -2rem;
+}
+.success-message > img{
+    width: 20px;
+    height: 20px;
+    border: dotted 2px #87cc6d;
+    padding: 5px;
+    border-radius: 50%;
+}
+.success-message > p{
+    color: #87cc6d;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.success-message > span{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.success-message > button{
+    margin-bottom: -2rem;
+    width: 6rem;
+    height: 2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: large;
+    border: none;
+    background-color: #87cc6d;
+}
+  .close-btn, .delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 4px;
+  }

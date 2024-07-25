@@ -1,0 +1,50 @@
+<app-navbar></app-navbar>
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+<div class="content-area">
+  <div *ngIf="successMessage" class="success-message">
+    <img src="../assets/tick.png" alt="">
+    <p>Success!</p>
+    <span>{{ successMessage }}</span>
+    <button>continue</button>
+  </div> 
+</div>
+<div class="main">
+  <div class="main">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <h2>Registration form</h2>
+
+      <input type="text" formControlName="firstName" placeholder="Enter your First Name.....">
+      <div class="valid-container" *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+        <small class="validateError" *ngIf="registerForm.get('firstName')?.errors?.['required']">First Name is required</small>
+        <small class="validateError" *ngIf="registerForm.get('firstName')?.errors?.['minlength']">First Name must be at least 2 characters long</small>
+      </div>
+
+      <input type="text" formControlName="lastName" placeholder="Enter your Last Name.....">
+      <div class="valid-container" *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+        <small class="validateError" *ngIf="registerForm.get('lastName')?.errors?.['required']">Last Name is required</small>
+        <small class="validateError" *ngIf="registerForm.get('lastName')?.errors?.['minlength']">Last Name must be at least 2 characters long</small>
+      </div>
+
+      <input type="email" formControlName="email" placeholder="Enter you Email.....">
+      <div class="valid-container" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+        <small class="validateError" *ngIf="registerForm.get('email')?.errors?.['required']">Email is required</small>
+        <small class="validateError" *ngIf="registerForm.get('email')?.errors?.['email']">Enter a valid email</small>
+      </div>
+
+      <input type="password" formControlName="password" placeholder="Enter your password.....">
+      <div class="valid-container" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        <small class="validateError" *ngIf="registerForm.get('password')?.errors?.['required']">Password is required</small>
+        <small class="validateError" *ngIf="registerForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long</small>
+      </div>
+
+      <input type="text" formControlName="phoneNumber" placeholder="Enter your Phone Number.....">
+      <div class="valid-container" *ngIf="registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched">
+        <small class="validateError" *ngIf="registerForm.get('phoneNumber')?.errors?.['required']">Phone Number is required</small>
+        <small class="validateError" *ngIf="registerForm.get('phoneNumber')?.errors?.['pattern']">Enter a valid phone number</small>
+      </div>
+
+      <input type="submit" value="Register" [disabled]="registerForm.invalid">
+      <p>already have an account? <a routerLink="/login">sign in</a></p>
+    </form>
+  </div>
+</div>

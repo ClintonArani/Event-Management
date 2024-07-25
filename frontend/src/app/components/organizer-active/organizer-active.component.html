@@ -1,0 +1,97 @@
+
+
+
+<div class="main">
+  <div *ngIf="successMessage" class="success-message">
+    <img src="../assets/tick.png" alt="Success Icon">
+    <p>Success!</p>
+    <span>{{ successMessage }}</span>
+    <button (click)="successMessage = null">Continue</button>
+  </div>
+  
+  <div *ngIf="errorMessage" class="error-message">
+    <p>Error!</p>
+    <span>{{ errorMessage }}</span>
+    <button (click)="errorMessage = null">Dismiss</button>
+  </div>
+  <!-- Confirmation Dialog -->
+  <div *ngIf="showConfirmDialog" class="confirmation-dialog">
+    <div class="confirmation-dialog-content">
+      <p>Are you sure you want to delete this booking?</p>
+      <div class="confirmation-dialog-buttons">
+        <button (click)="deleteEvent()" class="confirm-btn">Yes</button>
+        <button (click)="cancelDelete()" class="cancel-btn">No</button>
+      </div>
+    </div>
+  </div>
+  <div class="cards">
+    <!-- Cards content if needed -->
+  </div>
+  
+  <div class="table-container">
+    <div class="search-container">
+      <input type="search" placeholder="Search events..." [(ngModel)]="searchTerm" (input)="applyFilter()">
+    </div>
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Date</th>
+          <th>Time</th>
+          <th>Location</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of filteredEvents">
+          <td><img [src]="event.Image" alt="Event Image" style="width: 50px; height: auto;"></td>
+          <td>{{ event.EventDate | date:'longDate' }}</td>
+          <td>{{ event.EventTime | date:'shortTime'}}</td>
+          <td>{{ event.Location }}</td>
+          <td>{{ event.Price | currency }}</td>
+          <td>{{ event.Description }}</td>
+          <td class="actionsicons">
+            <img class="edit" src="../assets/edit.png" alt="edit icon" (click)="editEvent(event)">
+            <img class="cancel" src="../assets/deleteicon.png" alt="delete icon" (click)="confirmDeleteEvent(event)">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div *ngIf="showForm" class="form-container">
+    <form [formGroup]="eventForm" (ngSubmit)="submitForm()">
+      <div>
+        <label for="EventDate">Event Date:</label>
+        <input id="EventDate" formControlName="EventDate" type="date">
+      </div>
+      <div>
+        <label for="EventTime">Event Time:</label>
+        <input id="EventTime" formControlName="EventTime" type="time">
+      </div>
+      <div>
+        <label for="Location">Location:</label>
+        <input id="Location" formControlName="Location" type="text">
+      </div>
+      <div>
+        <label for="Price">Price:</label>
+        <input id="Price" formControlName="Price" type="text">
+      </div>
+      <div>
+        <label for="Description">Description:</label>
+        <textarea id="Description" formControlName="Description"></textarea>
+      </div>
+      <div>
+        <label for="Image">Image:</label>
+        <input id="Image" type="file" (change)="onFileChange($event)">
+      </div>
+      <div class="twobuttons">
+        <button  type="submit">Submit</button>
+        <button type="button" (click)="cancelEdit()">Cancel</button>
+      </div>
+    </form>
+  </div>
+
+</div>

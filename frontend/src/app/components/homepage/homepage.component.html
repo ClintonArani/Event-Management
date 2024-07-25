@@ -1,0 +1,131 @@
+<app-navbar></app-navbar>
+<div class="content-area">
+    <div *ngIf="successMessage" class="success-message">
+      <img src="../assets/tick.png" alt="">
+      <p>Success!</p>
+      <span>{{ successMessage }}</span>
+      <button>continue</button>
+    </div> 
+</div>
+
+<div class="main">
+    <div class="home">
+        <h1>Welcome to Our Event <br><span>Planning World</span></h1>
+        <button class="explore-btn">Explore More</button>
+    </div>
+
+    <!-- ****************************** Event area ********************************** -->
+    <div class="events-container">
+        <h1>Upcoming Events</h1>
+        <div class="events-area">
+            <div class="event" *ngFor="let event of filteredEvents">
+                <div class="event-image">
+                    <img [src]="event.Image" alt="Event Image" style="width: 22rem; height: 10rem;">
+                </div>
+                <div class="event-content">
+                    <div class="event-conte">
+                        <span><h2>Location:</h2><p>{{ event.Location }}</p></span>
+                        <span><h2>Description:</h2><p>{{ event.Description }}</p></span>
+                        <span><h2>Price:</h2><p>{{ event.Price | currency }}</p></span>
+                        <span><h2>Date:</h2><p>{{ event.EventDate | date:'shortDate' }}</p></span>
+                        <span><h2>Time:</h2><p>{{ event.EventTime | date:'shortTime' }}</p></span>
+                    </div>
+                    <button (click)="viewDetails(event)">
+                        <span>View Details</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Event Details Display -->
+    <div *ngIf="selectedEvent" class="event-details-container">
+        <div class="event-details-heading">
+            <h3>Book Ticket</h3>
+        </div>
+        <div class="content">
+            <img [src]="selectedEvent.Image" alt="" style="width: 12rem; height: 5rem;">
+            <p><strong>Date:</strong> {{ selectedEvent.EventDate | date:'shortDate' }}</p>
+            <p><strong>Time:</strong> {{ selectedEvent.EventTime | date:'shortTime' }}</p>
+            <p><strong>Location:</strong> {{ selectedEvent.Location }}</p>
+            <p><strong>Description:</strong> {{ selectedEvent.Description }}</p>
+            <p><strong>Price:</strong> {{ selectedEvent.Price | currency }}</p>
+    
+            <!-- Discount Information -->
+            <div class="discount-info">
+                <p><strong>Discount Policy:</strong></p>
+                <ul>
+                    <li>2 to 3 people: 10% discount</li>
+                    <li>4 to 7 people: 20% discount</li>
+                    <li>8 or more people: 40% discount</li>
+                </ul>
+            </div>
+    
+            <!-- Dropdown and Number Input for Booking -->
+            <div class="booking-options">
+                <label for="bookingType"><strong>Booking Type:</strong></label>
+                <select id="bookingType" [(ngModel)]="bookingType">
+                    <option value="single">Single</option>
+                    <option value="group">Group</option>
+                </select>
+    
+                <label for="numberOfPeople"><strong>Number of People:</strong></label>
+                <input id="numberOfPeople" type="number" [(ngModel)]="numberOfPeople" min="1" />
+            </div>
+    
+            <div class="eventbtns">
+                <button class="book-event-btn" (click)="bookEvent()">Book Event</button>
+                <button class="close-btn" (click)="selectedEvent = null">Close</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Contact Us -->
+    <div class="contact" id="contact">
+        <h1>Contact Us</h1>
+        <form action="https://formspree.io/f/xleqerdg" method="post">
+            <div>
+                <label for="name">Name:</label>
+                <input style="margin-left: 2rem;" type="text" name="name" id="name" required>  
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input style="margin-left: 2rem;" type="email" name="email" id="email" required> 
+            </div>
+            <div>
+                <label for="subject">Subject:</label>
+                <input type="text" name="subject" id="subject" required>
+            </div>
+            <div>
+                <label style="margin-left: px;" for="message">Message:</label>
+                <textarea name="message" id="message" required></textarea >   
+            </div>
+            <input type="submit" value="send">
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="../assets/logo.png" alt="Logo">
+            </div>
+            <div class="footer-info">
+                <p>Created with Passion ❤️ by Clinton Omari</p>
+                <p>© 2024 All Rights Reserved</p>
+            </div>
+            <div class="footer-social">
+                <a href="https://x.com/AraniOmari93215" target="_blank" rel="noopener noreferrer">
+                    <img src="../assets/twitter.png" alt="Twitter">
+                </a>
+                <a href="https://www.instagram.com/clintonomari9/?hl=en" target="_blank" rel="noopener noreferrer">
+                    <img src="../assets/instagram.jpeg" alt="Instagram">
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=100088893566893" target="_blank" rel="noopener noreferrer">
+                    <img src="../assets/facebook.png" alt="Facebook">
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    
+</div>

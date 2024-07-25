@@ -1,0 +1,14 @@
+### LOGIN
+POST http://localhost:5400/auth/login 
+Content-Type: application/json
+
+{
+    "email": "clintonarani@gmail.com",
+    "password": "Clintonomari@12"
+}
+
+
+### Check token details
+GET http://localhost:5400/auth/check-details 
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImJiYzQ3YjM4LWQ0OWYtNGVlZi04YjYzLTMyYjk5NDk0YTE5ZiIsImZpcnN0TmFtZSI6IkNsaW50b24iLCJsYXN0TmFtZSI6Ik9tYXJpIiwicGhvbmVOdW1iZXIiOiIwNzkxNzM2NTc2IiwiZW1haWwiOiJjbGludG9uYXJhbmlAZ21haWwuY29tIiwicHJvZmlsZSI6bnVsbCwiaXNDcmVhdGVkIjpmYWxzZSwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzIxMzA0OTI3LCJleHAiOjE3MjEzMTIxMjd9.8guuaT2wXN0RKM2zHJuM8EY8RTBwCj6NKLN8nY8B8z8

@@ -1,0 +1,30 @@
+<div class="main">
+    <div class="sidebar">
+        <div (click)="showDashboard()" class="container1 dashboard">
+            <img src="../assets/home.png" alt="">
+            <p>Dashboard</p>
+        </div>
+        <div (click)="showCreateEventForm()" class="container1 users">
+            <img src="../assets/create.png" alt="">
+            <p>Create Event</p>
+        </div>
+        <div (click)="showProfile()" class="container1 profile">
+            <img src="../assets/user.png" alt="">
+            <p>profile</p>
+        </div>
+        <div (click)="exit()" class="container1 exit">
+            <img src="../assets/exit.png" alt="">
+            <p>exit</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="topbar">
+            <h2>welcome Organizer</h2>
+            <img [src]="profileImage" alt="Profile Image">
+
+        </div>
+        <div class="mainarea">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

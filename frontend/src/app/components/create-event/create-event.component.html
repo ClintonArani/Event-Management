@@ -1,0 +1,57 @@
+<div *ngIf="successMessage" class="success-message">
+  <img src="../assets/tick.png" alt="">
+  <p>Success!</p>
+  <span>{{ successMessage }}</span>
+  <button>Continue</button>
+</div>
+
+<div class="form-container">
+  <h2>Add New Event</h2>
+  <form [formGroup]="eventForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="EventDate">Date:</label>
+      <input type="date" id="EventDate" formControlName="EventDate" required>
+      <div *ngIf="eventForm.get('EventDate')?.errors?.['required'] && (eventForm.get('EventDate')?.dirty || eventForm.get('EventDate')?.touched)" class="error-message">
+        <small>Date is required.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="EventTime">Time:</label>
+      <input type="time" id="EventTime" formControlName="EventTime" required>
+      <div *ngIf="eventForm.get('EventTime')?.errors?.['required'] && (eventForm.get('EventTime')?.dirty || eventForm.get('EventTime')?.touched)" class="error-message">
+        <small>Time is required.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Location">Location:</label>
+      <input type="text" id="Location" formControlName="Location" required>
+      <div *ngIf="eventForm.get('Location')?.errors?.['required'] && (eventForm.get('Location')?.dirty || eventForm.get('Location')?.touched)" class="error-message">
+        <small>Location is required.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Price">Price:</label>
+      <input type="text" id="amount" formControlName="Price" required>
+      <div *ngIf="eventForm.get('Price')?.errors?.['required'] && (eventForm.get('Price')?.dirty || eventForm.get('Price')?.touched)" class="error-message">
+        <small>Price is required.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Description">Description:</label>
+      <textarea id="Description" formControlName="Description" rows="4" required></textarea>
+      <div *ngIf="eventForm.get('Description')?.errors?.['required'] && (eventForm.get('Description')?.dirty || eventForm.get('Description')?.touched)" class="error-message">
+        <small>Description is required.</small>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="Image">Event Image:</label>
+      <input type="file" id="Image" (change)="onFileSelected($event)" required>
+      <div *ngIf="imageError" class="error-message">
+        <small>{{ imageError }}</small>
+      </div>
+    </div>
+    <div class="buttonbtn">
+      <button class="btn1" type="submit" >Add Event</button>
+    </div>
+  </form>
+</div> 

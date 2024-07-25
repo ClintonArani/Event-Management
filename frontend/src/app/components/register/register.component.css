@@ -1,0 +1,160 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-image: url('../../../../public/assets/eventsbg.jpg'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.main > form{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    box-shadow: 1px 1px 1px 2px #2a1e84; 
+    border-radius: 10px; 
+    padding: 30px 20px;
+}
+.main > form > h2{
+    color: #2a1e84;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+}
+.main > form >
+input[type='text'],
+input[type='email'],
+input[type='password']{
+    width: 18rem;
+    height: 2rem;
+    padding-left: 5px;
+    margin-bottom: 1rem;
+    color: #000;
+    border-bottom: 2px solid #2a1e84;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background: transparent;
+    
+}
+.main > form >
+input[type='text'],
+input[type='email'],
+input[type='password']:focus{
+    outline: none;
+}
+
+input[type="submit"]{
+    width: 12rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: 20px;
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+    background-color: #2a1e84;
+    cursor: pointer;
+    transition: all ease-in-out 0.5s;
+    margin-top: 1.5rem;
+}
+input[type="submit"]:hover{
+    background-color: #4731ea;
+    transform: translateY(-10px);
+}
+
+p{
+    margin-top: 1rem;
+    font-size: medium;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #000;
+}
+p > a{
+    border: none;
+    color: #4731ea;
+    text-transform: capitalize;
+    text-decoration: underline 2px;
+}
+::placeholder{
+    color: #484545;
+    font-weight: bold;
+    font-style: italic;
+}
+.validateError{
+    color: red;
+}
+.valid-container{
+    margin-top: -15px;
+
+}
+
+/* ***************success message***************** */
+.success-message {
+    position: fixed;
+    z-index: 1000;
+    margin-left: 20rem;
+    width: 20rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    margin-top: -2rem;
+}
+.success-message > img{
+    width: 20px;
+    height: 20px;
+    border: dotted 2px #87cc6d;
+    padding: 5px;
+    border-radius: 50%;
+}
+.success-message > p{
+    color: #87cc6d;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.success-message > span{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.success-message > button{
+    margin-bottom: -2rem;
+    width: 6rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: large;
+    border: none;
+    background-color: #87cc6d;
+}
+  .close-btn, .delete-button {
+    background-color: #f44336; /* Red */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 2px 1px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  

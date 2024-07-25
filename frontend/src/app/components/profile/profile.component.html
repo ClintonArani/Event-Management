@@ -1,0 +1,35 @@
+<div *ngIf="successMessage" class="success-message">
+    <img src="../assets/tick.png" alt="">
+    <p>Success!</p>
+    <span>{{ successMessage }}</span>
+    <button>continue</button>
+  </div> 
+<div class="profile-container">
+    <p>update your profile</p>
+    <div class="profile-header">
+      <img class="profile-image" [src]="admin.profileImage" alt="Profile Image">
+      <button class="change-image-btn" (click)="fileInput.click()"><img src="../assets/changeicon.png" alt=""></button>
+      <input #fileInput type="file" style="display: none" (change)="changeProfileImage($event)">
+    </div>
+    <!-- <div class="profile-details">
+      <div *ngIf="!editMode" class="detail">
+        <label>Name:</label>
+        <span>{{ admin.name }}</span>
+      </div>
+      <div *ngIf="editMode" class="detail">
+        <label>Name:</label>
+        <input type="text" [(ngModel)]="admin.name">
+      </div>
+      <div *ngIf="!editMode" class="detail">
+        <label>Email:</label>
+        <span>{{ admin.email }}</span>
+      </div>
+      <div *ngIf="editMode" class="detail">
+        <label>Email:</label>
+        <input type="email" [(ngModel)]="admin.email">
+      </div>
+      
+      <button class="edit-details-btn" (click)="toggleEditMode()">{{ editMode ? 'Save Details' : 'Edit Details' }}</button>
+      <button *ngIf="editMode" class="cancel-edit-btn" (click)="cancelEdit1()">Cancel</button> 
+    </div>-->
+</div>

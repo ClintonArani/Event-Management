@@ -1,0 +1,40 @@
+POST http://localhost:5400/users/create
+Content-Type: application/json
+
+{
+    "firstName": "Allan",
+    "lastName": "Omari",
+    "phoneNumber": "0791736582",
+    "email": "omaridennis380@gmail.com",
+    "password": "Allanomari@12"
+}
+
+
+### GET ALL USERS
+GET http://localhost:5400/users/all-users
+Content-Type: application/json
+
+
+### LOGIN
+POST http://localhost:5400/auth/login
+Content-Type: application/json
+
+{
+    "email": "clintonarani@gmail.com",
+    "password": "Billclinton@12"
+}
+
+### GET SINGLE USER
+
+GET http://localhost:5400/users/31edbe2e-7d4c-4968-ad46-158c3320be45
+Content-Type: application/json
+
+
+### SWITCH ROLES
+
+PUT http://localhost:5400/users/switch-role
+Content-Type: application/json
+
+{
+    "user_id": "31edbe2e-7d4c-4968-ad46-158c3320be45"
+}

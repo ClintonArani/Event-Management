@@ -1,0 +1,157 @@
+/* **************table**************** */
+.table-container {
+    margin: 1rem auto;
+    max-width: 82rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.styled-table th, .styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table thead tr {
+    background-color: #2a1e84;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #2a1e84;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+.custom-checkbox {
+    display: none;
+}
+
+.custom-checkbox + label {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border: solid 1px #2a1e84;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.custom-checkbox + label:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25px;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.custom-checkbox + label:hover:before {
+    background-color: #ccc;
+}
+
+.custom-checkbox:checked + label:before {
+    background-color: #4CAF50;
+}
+
+.custom-checkbox + label:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.custom-checkbox:checked + label:after {
+    display: block;
+}
+
+.custom-checkbox + label:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+/* ***************success message***************** */
+.success-message {
+    position: fixed;
+    z-index: 999;
+    margin-left: 20rem;
+    width: 20rem;
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    margin-top: -2rem;
+}
+.success-message > img{
+    width: 20px;
+    height: 20px;
+    border: dotted 2px #87cc6d;
+    padding: 5px;
+    border-radius: 50%;
+}
+.success-message > p{
+    color: #87cc6d;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.success-message > span{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.success-message > button{
+    margin-bottom: -2rem;
+    width: 6rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: large;
+    border: none;
+    background-color: #87cc6d;
+}
+
+
+
+.custom-checkbox:checked {
+    background-color: blue; /* Change background color when checked */
+    color: white; /* Optional: Change text color */
+}
+
+/* Optionally, adjust the styling for unchecked state if needed */
+.custom-checkbox:not(:checked) {
+    background-color: white; /* Or any other default color */
+}
+
+

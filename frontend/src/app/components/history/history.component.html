@@ -1,0 +1,51 @@
+<div class="history-container">
+  <!-- Confirmation Dialog -->
+  <div *ngIf="showConfirmationDialog" class="confirmation-dialog">
+    <div class="confirmation-dialog-content">
+      <p>Are you sure you want to delete this booking?</p>
+      <div class="confirmation-dialog-buttons">
+        <button (click)="confirmDelete()" class="confirm-btn">Yes</button>
+        <button (click)="closeConfirmationDialog()" class="cancel-btn">No</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="content-area">
+    <div *ngIf="successMessage" class="success-message">
+      <img src="../assets/tick.png" alt="">
+      <p>Success!</p>
+      <span>{{ successMessage }}</span>
+      <button>continue</button>
+    </div> 
+  </div>
+  <div class="history-heading">
+    <h3>Booking History Records</h3>
+  </div>
+  <input class="searchInput" type="text" name="search" id="search" [(ngModel)]="searchTerm" (input)="onSearch()" placeholder="search your event history here.....">
+  <div class="history-table-container">
+    <table class="table-stylings">
+      <thead>
+        <tr>
+          <th>Booking Date</th>
+          <th>Type</th>
+          <th>Number of People</th>
+          <th>Total Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let history of historyEvents">
+          <td>{{history.BookingDate | date: "longDate"}}</td>
+          <td>{{history.Type}}</td>
+          <td>{{history.NumberOfPeople}}</td>
+          <td>{{history.TotalPrice}}</td>
+          <td>
+            <span class="delete-buttons" *ngIf="history.Id" (click)="openConfirmationDialog(history.Id)"><img src="../assets/delete.png" alt=""></span>
+            <span *ngIf="!history.Id">No ID available</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,215 @@
+<!-- <div class="main">
+    <div class="sidebar">
+      <div class="dashboard">
+        <img src="../assets/home.png" alt="icon picture">
+        <p>Dashboard</p>
+      </div>
+      <div class="history" (click)="viewBookingHistory()">
+        <img src="../assets/history.png" alt="icon picture">
+        <p>History</p>
+      </div>
+      <div class="booking" (click)="viewBookings()">
+        <img src="../assets/booking.png" alt="icon picture">
+        <p>Bookings</p>
+      </div>
+      <div class="profile" (click)="toggleProfile()">
+        <img src="../assets/user.png" alt="icon picture">
+        <p>Profile</p>
+      </div>
+      <div routerLink="/login" class="exit">
+        <img src="../assets/exit.png" alt="icon picture">
+        <p>Exist</p>
+      </div>
+    </div>
+  
+    <div class="content-area">
+      <div *ngIf="successMessage" class="success-message">
+        <img src="../assets/tick.png" alt="">
+        <p>Success!</p>
+        <span>{{ successMessage }}</span>
+        <button>continue</button>
+      </div> 
+
+      <div class="topbar">
+        <img src="../assets/menu.png" alt="icon picture" (click)="toggleSidebar()">
+        <input type="search" name="search" placeholder="Search here....." (input)="filterTable($event)">
+        <div class="profile">
+          <img class="profile-image" [src]="admin.profileImage">
+          <P>{{ admin.name }}</P>
+        </div>
+      </div>
+
+      <div class="events">
+        <div class="event">
+          <div class="cards">
+            <p>Booked Events</p>
+            <span>{{ bookedEventsCount }}</span>
+          </div>
+          <div class="cards">
+            <p>Unbooked Events</p>
+            <span>{{ nonBookedEventsCount }}</span>
+          </div>
+          <div class="cards">
+            <p>All Events</p>
+            <span>{{ allEventsCount }}</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="table-container">
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Location</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of filteredEvents">
+              <td>{{ event.EventDate }}</td>
+              <td>{{ event.EventTime }}</td>
+              <td>{{ event.Location }}</td>
+              <td>{{ event.Description }}</td>
+              <td>{{ event.Price }}</td>
+              <td>
+                <button 
+                  [ngClass]="{'view-button': !event.isBooked, 'booked-button': event.isBooked}" 
+                  (click)="event.isBooked ? null : viewDetails(event)">
+                  {{ event.isBooked ? 'Booked' : 'View' }}
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+  
+      <div class="calendar-card">
+        <p id="title">Book Apointment</p>
+        <form [formGroup]="appointmentForm" (ngSubmit)="scheduleMeeting()">
+          <div class="form-group">
+            <label for="appointmentTime">Meeting Time </label>
+            <input type="datetime-local" id="appointmentTime" formControlName="appointmentTime" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email </label>
+            <input type="email" id="email" class="form-control" formControlName="email" />
+          </div>
+          <br />
+          <button type="submit" id="schedule-button">Schedule Appointment</button>
+        </form>
+      </div>
+  
+      <div class="profile-container" [hidden]="!showProfile">
+        <div class="heading">
+          <h2>Profile Area</h2>
+      </div>
+        <div class="profile-header">
+          <img class="profile-image" [src]="admin.profileImage" alt="Profile Image">
+          <button class="change-image-btn" (click)="fileInput.click()"><img src="../assets/changeicon.png" alt=""></button>
+          <input #fileInput type="file" style="display: none" (change)="changeProfileImage($event)">
+        </div>
+        <div class="profile-details">
+          <div *ngIf="!editMode" class="detail">
+            <label>Name:</label>
+            <span>{{ admin.name }}</span>
+          </div>
+          <div *ngIf="editMode" class="detail">
+            <label>Name:</label>
+            <input type="text" [(ngModel)]="admin.name">
+          </div>
+          <div *ngIf="!editMode" class="detail">
+            <label>Email:</label>
+            <span>{{ admin.email }}</span>
+          </div>
+          <div *ngIf="editMode" class="detail">
+            <label>Email:</label>
+            <input type="email" [(ngModel)]="admin.email">
+          </div>
+          <button class="edit-details-btn" (click)="toggleEditMode()">{{ editMode ? 'Save Details' : 'Edit Details' }}</button>
+          <button *ngIf="editMode" class="cancel-edit-btn" (click)="cancelEdit()">Cancel</button>
+        </div>
+      </div>
+  
+      <div *ngIf="selectedEvent" class="event-details-container">
+        <div class="event-details-heading">
+          <h3>Event Details</h3>
+        </div>
+        <div class="content">
+          <p><strong>Date:</strong> {{ selectedEvent.EventDate }}</p>
+          <p><strong>Time:</strong> {{ selectedEvent.EventTime }}</p>
+          <p><strong>Location:</strong> {{ selectedEvent.Location }}</p>
+          <p><strong>Description:</strong> {{ selectedEvent.Description }}</p>
+          <p><strong>Price:</strong> {{ selectedEvent.Price }}</p>
+          <div class="eventbtns">
+            <button class="book-event-btn" (click)="bookEvent(selectedEvent)">Book Event</button>
+            <button class="close-btn" (click)="closeEventDetails()">Close</button>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="showBookings" class="history-container">
+        <div class="history-heading">
+          <h3>Event Bookings Records</h3>
+          <button class="close-btn" (click)="closeBooking()">Close</button>
+        </div>
+          <div class="history-table-container">
+            <table class="table-stylings">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let booking of bookings">
+                  <td>{{ booking.date }}</td>
+                  <td>{{ booking.time }}</td>
+                  <td>{{ booking.location }}</td>
+                  <td>{{ booking.description }}</td>
+                  <td><button class="delete-button" (click)="deleteBooking(booking.id)">Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+  
+      <div *ngIf="showHistory" class="history-container">
+        <div class="history-heading">
+          <h3>Booking History Records</h3>
+          <button class="close-btn" (click)="closeHistory()">Close</button>
+        </div>
+          <div class="history-table-container">
+            <table class="table-stylings">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let history of historyEvents">
+                  <td>{{ history.date }}</td>
+                  <td>{{ history.time }}</td>
+                  <td>{{ history.location }}</td>
+                  <td>{{ history.description }}</td>
+                  <td><button class="delete-button" (click)="deleteHistory(history.id)">Delete</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+   -->

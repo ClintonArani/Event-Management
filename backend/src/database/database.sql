@@ -1,0 +1,1 @@
+CREATE database event_management
